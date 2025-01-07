@@ -1,0 +1,24 @@
+#background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+}
+
+#background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Correção do uso de ::after */
+#background::after {
+    content: '';
+    width: 100%; /* Corrigido para 100% para herdar o tamanho do elemento pai */
+    height: 100%; /* Corrigido para 100% */
+    position: absolute; /* Alterei para absolute para evitar problemas de posicionamento */
+    inset: 0;
+    background: linear-gradient(109deg, black 15%, transparent 50%, black 85%);
+    pointer-events: none; /* Garante que o gradiente não atrapalhe a interação com o vídeo */
+}
